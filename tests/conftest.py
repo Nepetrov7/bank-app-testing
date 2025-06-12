@@ -20,7 +20,7 @@ def server():
 @pytest.fixture(scope="function")
 def page(server):
     with sync_playwright() as p:
-        browser = p.chromium.launch()
+        browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         yield page
         browser.close()
